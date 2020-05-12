@@ -37,11 +37,22 @@ app.get('/',(req,res)=>{
 })
 // app.get('/',(req,res)=>res.send("sent right"));
 app.get('/player_del/:id',(req,res)=>{
-    players_data.splice(req.params.id,1);
+    let this_player_id;
+    for (let player of players_data){
+        if (player.id==req.params.id){
+            this_player_id=player
+        }
+    }
+    players_data.splice(this_player_id,1);
     res.redirect('/')
 })
 app.get('/player_edit/:id',(req,res)=>{
-    let player=players_data[req.params.id];
-    res.render('form_update',{player})
+    let this_player;
+    for (let player of players_data){
+        if (player.id==req.params.id){
+            this_player=player
+        }
+    }
+    res.render('form_update',{this_player})
 });
 app.listen(process.env.PORT || 5000,console.log("started"));
