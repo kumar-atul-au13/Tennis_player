@@ -37,11 +37,11 @@ app.get('/',(req,res)=>{
 })
 // app.get('/',(req,res)=>res.send("sent right"));
 app.get('/player_del/:id',(req,res)=>{
-    players_data.splice(req.params.id,1)
+    players_data.splice(req.params.id,1);
     res.redirect('/')
 })
 app.get('/player_edit/:id',(req,res)=>{
-    let player=players_data[req.params.id]
+    let player=players_data[req.params.id];
     res.render('form_update',{player})
-})
-app.listen(5000,console.log("started"))
+});
+app.listen(process.env.PORT || 5000,console.log("started"));
