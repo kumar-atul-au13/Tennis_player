@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacts App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-4 col-md-4 ">
+            <!--<form action="/addTennisPlayer" method="POST">
+                <label for="username">
+                    Name:
+                    <input class="form-control" type="text" name="name" id="username">
+                </label>
+                <label for="country">
+                    Country:
+                    <input class="form-control" type="text" name="country" id="country">
+                </label>
+                <p></p>
+                <button class="btn btn-info" type="submit">Add</button>
+            </form>-->
+            <!--            <table class=".table-dark  ">-->
+            <table class="table table-striped d-flex justify-content-around">
+                <th colspan="4">
+                    Well known Tennis players
+                </th>
+                <tr>
+
+                    <td>
+                        Edit
+                    </td>
+                    <td>
+                        del
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Country
+                    </td>
+
+                </tr>
+
+                {{#each players_data}}
+                    <tr>
+                        <td>
+                            <a href="./player_edit/{{this.id}}">
+                                <img src="./img/edit2.png" height="32" width="32">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="./player_del/{{this.id}}">
+                                <img src="./img/del.png" height="32" width="32">
+                            </a>
+                        </td>
+                        <td>
+                            {{this.name}}
+                        </td>
+                        <td>
+                            {{this.country}}
+                        </td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <td align="center" colspan="4">
+                        <a href="./form_add">
+                            <img src="./img/plus1.png" height="32" width="32">
+                            Add Player
+                        </a>
+                    </td>
+
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
