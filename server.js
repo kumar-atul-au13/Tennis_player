@@ -3,8 +3,8 @@ const app=express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-players_data=[]
-id=0
+players_data=[{'name':'Kumar Atul','country':'Mongolia','id':0},{'name':'Anu','country':'Bangladesh',id:1},{'name':'KMK','country':'SriLanka',id:2}]
+id=3
 // app.use('/', express.static(__dirname+'/views/index.html'))
 app.use('/img', express.static(__dirname+'/views/img'))
 app.use('/form_add',express.static(__dirname+'/views/form_add.html'))
