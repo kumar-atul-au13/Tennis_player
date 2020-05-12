@@ -5,7 +5,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 players_data=[]
 id=0
-// app.use('/players', express.static(__dirname+'/views/index.html'))
+// app.use('/', express.static(__dirname+'/views/index.html'))
 app.use('/img', express.static(__dirname+'/views/img'))
 app.use('/form_add',express.static(__dirname+'/views/form_add.html'))
 
@@ -19,7 +19,7 @@ app.get('/form_update/:name/:country',(req,res)=>{
 app.post('/addTennisPlayer',(req,res)=>{
     players_data.push({name:req.body.name,country:req.body.country,id})
     id+=1
-    res.redirect('/players')
+    res.redirect('/')
 })
 app.post('/updateTennisPlayer',(req,res)=>{
     for(let player of players_data){
@@ -30,15 +30,15 @@ app.post('/updateTennisPlayer',(req,res)=>{
             break
         }
     }
-    res.redirect('/players')
+    res.redirect('/')
 });
-app.get('/players',(req,res)=>{
+app.get('/',(req,res)=>{
     res.render('index',{players_data})
 })
 // app.get('/',(req,res)=>res.send("sent right"));
 app.get('/player_del/:id',(req,res)=>{
     players_data.splice(req.params.id,1)
-    res.redirect('/players')
+    res.redirect('/')
 })
 app.get('/player_edit/:id',(req,res)=>{
     let player=players_data[req.params.id]
